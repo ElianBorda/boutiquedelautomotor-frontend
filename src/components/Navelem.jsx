@@ -14,7 +14,7 @@ const Navelem = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/turnos">Turnos</Nav.Link>
-            <Nav.Link href="#link">Historial de servicios</Nav.Link>
+            <Nav.Link href="/historial">Historial de servicios</Nav.Link>
             <Nav.Link href="#link">Servicios disponibles</Nav.Link>
             <NavDropdown title="Acciones" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Realizar Turno</NavDropdown.Item>

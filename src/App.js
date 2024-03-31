@@ -3,6 +3,7 @@ import './App.css';
 import TurnosDeTrabajoComponent from './components/TurnosDeTrabajoComponent';
 import Navelem from './components/Navelem';
 import ServiciosSolicitados from './components/ServiciosSolicitados';
+import HistorioalDeServicios from './components/HistorioalDeServicios';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TurnosDeTrabajoComponent />}/>
         <Route path="/turnos" element={<TurnosDeTrabajoComponent />}/>
+        <Route path="/historial" element={<HistorioalDeServicios />}/>
       </Routes>
     </BrowserRouter>
   );

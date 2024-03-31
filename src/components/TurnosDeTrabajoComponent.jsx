@@ -3,6 +3,7 @@ import { Button, Table } from 'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../css/ancho.css"
 import ServiciosSolicitados from './ServiciosSolicitados'
+import { useFetch } from '../function/useFetch'
 
 const TurnosDeTrabajoComponent = () => {
 
@@ -291,6 +292,7 @@ const TurnosDeTrabajoComponent = () => {
         }
     ];
     
+    const { data } = useFetch("http://localhost:8080/turno")
 
     return (
         <div>
@@ -321,16 +323,17 @@ const TurnosDeTrabajoComponent = () => {
                 </thead>
                 <tbody>
                     {
-                        dummyData.map(turno => 
+                        data?.map(turno => 
                             <tr key={turno.id}>
                                 <td>{turno.id}</td>
-                                <td>{turno.fechaYHora}</td>
-                                <td>{turno.nombre + " " + turno.apellido}</td>
-                                <td>{turno.patente}</td>
-                                <td><ServiciosSolicitados /></td>
-                                <td>{turno.premium}</td>
+                                <td>{turno.fechaHora}</td>
+                                <td>{turno.cliente.nombre + " " + turno.cliente.apellido}</td>
+                                <td>{turno.cliente.patenteVehiculo}</td>
+                                <td><ServiciosSolicitados servicios={turno.serviciosContratados} precioTotal={turno.precioTotal}/></td>
+                                <td>{String(turno.cliente.esPremium) == "true" ? "Si" : "No"}</td>
                                 <td>{turno.precioTotal}</td>
                             </tr>)
+                            
                     }
                 </tbody>
             </Table>
